@@ -3,20 +3,40 @@ import styled from 'styled-components/macro';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <a href={`/story/${id}`}>
+    <OpinionLink href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
-        <div>
+        <OpinionArticle>
           <AuthorName>{author}</AuthorName>
           <ArticleTitle>{title}</ArticleTitle>
-        </div>
+        </OpinionArticle>
       </Wrapper>
-    </a>
+    </OpinionLink>
   );
 };
 
+const OpinionLink = styled.a`
+  padding-top: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-gray-300);
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+`;
+
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row-reverse;
 `;
 
 const Avatar = styled.img`
@@ -25,6 +45,11 @@ const Avatar = styled.img`
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 8px;
+`;
+
+const OpinionArticle = styled.div`
+  justify-self: flex-start;
 `;
 
 const AuthorName = styled.p`

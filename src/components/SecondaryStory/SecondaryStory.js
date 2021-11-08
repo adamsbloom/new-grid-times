@@ -3,15 +3,29 @@ import styled from 'styled-components/macro';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
+    <StoryLink href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </StoryLink>
   );
 };
+
+const StoryLink = styled.a`
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-gray-300);
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+`;
 
 const Wrapper = styled.article`
   display: grid;
