@@ -1,16 +1,23 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const MiniStory = ({ id, image, title }) => {
   return (
-    <a href={`/story/${id}`}>
+    <MiniStoryLink href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Title>{title}</Title>
       </Wrapper>
-    </a>
+    </MiniStoryLink>
   );
 };
+
+const MiniStoryLink = styled.a`
+  @media ${QUERIES.tabletAndUp} {
+    min-width: 220px;
+  }
+`;
 
 const Wrapper = styled.article`
   display: flex;
