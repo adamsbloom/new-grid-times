@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
@@ -28,6 +29,21 @@ const OpinionLink = styled.a`
     padding-bottom: 0;
     border-bottom: 0;
   }
+
+  @media ${QUERIES.tabletOnly} {
+    flex: 1;
+    gap: 64px;
+    padding: 0 8px;
+    border-bottom: 0;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
 `;
 
 const Wrapper = styled.article`
@@ -37,6 +53,10 @@ const Wrapper = styled.article`
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: row-reverse;
+
+  @media ${QUERIES.tabletOnly} {
+    display: block;
+  }
 `;
 
 const Avatar = styled.img`
